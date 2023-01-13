@@ -17,7 +17,6 @@
 
 import ROOT 
 import os 
-#import h5py
 import uproot3 as ur
 import tensorflow as tf
 import numpy as np
@@ -26,8 +25,7 @@ import matplotlib.pyplot as plt
 
 
 print("imports worked!")
-#print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU'))) # tensorflow 1
-#print(tf.test.is_gpu_available()) # tensorflow 2
+print(tf.test.is_gpu_available()) # tensorflow 2
 
 
 inFileName = "tt_hf_MVA_input_reco_nominal_lep_pT_28.root"
@@ -37,8 +35,7 @@ print(inFile.classnames())
 treeSig = inFile["Signal"]
 treeBkg = inFile["Background"]
 
-print(treeSig.keys())
 print("Signal tree keys: \n", \
       treeSig.keys(), \
-      "Background tree keys: \n", \
+      "\nBackground tree keys: \n", \
       treeBkg.keys())

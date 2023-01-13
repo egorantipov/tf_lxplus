@@ -1,0 +1,9 @@
+executable    = myjob.sh
+arguments     = $(ClusterId) $(ProcId)
+output        = condor/condor_out_$(ClusterId).$(ProcId).out
+error         = condor/condor_err_$(ClusterId).$(ProcId).err
+log           = condor/condor_log_$(ClusterId).$(ProcId).log
+
+request_gpus  = 1
++JobFlavour   = "testmatch"
+queue

@@ -27,6 +27,14 @@ python classifier.py
 ```
 
 
-# TODO
+# Running in Condor
 
-Create `HTCondor` submit routine.
+There two files needed to run a job in condor: `myjob.sub` and `myjob.sh`. The first setupts job's parameters, and the second is the actual executalbe. To submit the job simply run:
+```bash
+condor_submit myjob.sub
+```
+The output, log and error files will appear in `condor/` directory.
+
+
+# TODO
+Implement simple NN setup. 
