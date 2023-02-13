@@ -22,20 +22,27 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import time
+
+pd.set_option('display.max_columns', None)
+np.random.seed(31415)
 
 
-print("imports worked!")
-print(tf.test.is_gpu_available()) # tensorflow 2
+print("Tensorflow version: \n", tf.__version__)
+print(tf.test.is_gpu_available())
 
 
-inFileName = "tt_hf_MVA_input_reco_nominal_lep_pT_28.root"
+inFileName = "NN_input.root"
 inFile = ur.open(inFileName)
 print(inFile.classnames())
 
-treeSig = inFile["Signal"]
-treeBkg = inFile["Background"]
+tree = inFile["Merged"]
+print("Tree keys: \n", tree.keys())
+print(type(tree))
+tree.show()
 
-print("Signal tree keys: \n", \
-      treeSig.keys(), \
-      "\nBackground tree keys: \n", \
-      treeBkg.keys())
+#dfall = tree.arrays() # argument ` library="pd" ` didn't work
+#print(type(dfall))
+
+# Shuffle the events
+#dfall = dfall.sample(frac=1).reset_index(drop=True)
